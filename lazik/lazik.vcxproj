@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cuboid.cpp" />
+    <ClCompile Include="Lazik.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Stozek.cpp" />
     <ClCompile Include="Vector3.cpp" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="..\RESOURCE1.H" />
     <ClInclude Include="Cuboid.h" />
+    <ClInclude Include="Lazik.h" />
     <ClInclude Include="Stozek.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Walec.h" />

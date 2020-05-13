@@ -9,7 +9,7 @@
 #include "..\RESOURCE1.H"
 class Walec
 {
-	float radius; //nw moze lepiej wszedzie dac GLfloat chuj wie
+	float radius; 
 	float height;
 	Vector3 color;
 	Vector3 position;

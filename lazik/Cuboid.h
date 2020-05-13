@@ -14,6 +14,7 @@ class Cuboid
 
 public:
 	Cuboid();
+	Cuboid(float x, float y, float z);
 	void Render();
 	void setPos(Vector3 pos);
 	void setSize(float w, float h, float d);
