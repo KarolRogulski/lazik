@@ -38,6 +38,7 @@
 #include "Cuboid.h"
 #include "Stozek.h"
 #include "Teren.h"
+#include "Lazik.h"
 
 #define glRGB(x, y, z)	glColor3ub((GLubyte)x, (GLubyte)y, (GLubyte)z)
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
@@ -53,7 +54,7 @@ static HINSTANCE hInstance;
 // Rotation amounts
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
-
+static GLfloat scale = 1.0f;
 
 static GLsizei lastHeight;
 static GLsizei lastWidth;
@@ -226,12 +227,17 @@ void RenderScene(void)
 	glRotatef(xRot, 1.0f, 0.0f, 0.0f);
 	glRotatef(yRot, 0.0f, 1.0f, 0.0f);
 
+	glScalef(scale, scale, scale);
 	/////////////////////////////////////////////////////////////////
 	// MIEJSCE NA KOD OPENGL DO TWORZENIA WLASNYCH SCEN:		   //
 	/////////////////////////////////////////////////////////////////
-	Teren teren;
-	teren.Render();
-
+	/*
+	Walec walec;
+	walec.setColor({ 0.0, 0.4, 0.5 });
+	walec.setSize(30.0, 60.0);
+	walec.Render();*/
+	Lazik lazik;
+	lazik.Render();
 
 	/////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////
@@ -648,6 +654,13 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 
 		if (wParam == VK_RIGHT)
 			yRot += 5.0f;
+		
+		//Camera zoom
+		if (wParam == 'P')
+			scale += 0.2f;
+
+		if (wParam == 'O')
+			scale -= 0.2f;
 
 		xRot = (const int)xRot % 360;
 		yRot = (const int)yRot % 360;
@@ -742,7 +755,3 @@ BOOL APIENTRY AboutDlgProc(HWND hDlg, UINT message, UINT wParam, LONG lParam)
 
 	return FALSE;
 }
-
-
-
-

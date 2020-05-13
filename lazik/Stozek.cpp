@@ -10,16 +10,17 @@ Stozek::Stozek() {
 
 void Stozek::Render()
 {
-	double x, y, alpha, PI = 3.14;
+	double x, z, alpha, PI = 3.14;
 
 	glBegin(GL_TRIANGLE_FAN);
 	glColor3d(color.x, color.y, color.z);
-	glVertex3d(position.x, position.y, position.z + height);
+	glVertex3d(position.x, position.y + height, position.z);
 	for (alpha = 0; alpha <= 2 * PI; alpha += PI / 20.0)
 	{
 		x = radius * sin(alpha);
-		y = radius * cos(alpha);
-		glVertex3d(x + position.x, y + position.y, position.z);
+		z = radius * cos(alpha);
+		glVertex3d(x + position.x, position.y, z + position.z);
+
 	}
 	glEnd();
 
@@ -29,8 +30,8 @@ void Stozek::Render()
 	for (alpha = 0; alpha <= 2 * PI; alpha += PI / 20.0)
 	{
 		x = radius * sin(alpha);
-		y = radius * cos(alpha);
-		glVertex3d(x + position.x, y + position.y, position.z);
+		z = radius * cos(alpha);
+		glVertex3d(x + position.x, position.y, z + position.z);
 	}
 	glEnd();
 }

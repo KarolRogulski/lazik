@@ -31,6 +31,7 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="Teren.cpp">
+    <ClCompile Include="Lazik.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,6 +52,7 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Teren.h">
+    <ClInclude Include="Lazik.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

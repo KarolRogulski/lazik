@@ -11,6 +11,7 @@ class Walec
 {
 	GLfloat radius;
 	GLfloat height;
+
 	Vector3 color;
 	Vector3 position;
 public:
