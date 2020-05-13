@@ -1,0 +1,13 @@
+.vs/lazik/v16/.suo
+.vs/lazik/v16/Browse.VC.db
+.vs/lazik/v16/Browse.VC.opendb
+*.ipch
+lazik/Debug/Cuboid.obj
+*.tlog
+*.idb
+*.pdb
+*.obj
+*.log
+*.aps
+*.exe
+*.ilk
