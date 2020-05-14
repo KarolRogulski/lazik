@@ -51,6 +51,7 @@ void Spodek::setColor(Vector3 colTop, Vector3 colBot, Vector3 colLig) {
 
 void Spodek::setPos(Vector3 pos) {
 	position = pos;
+	changePositions();
 }
 
 void Spodek::setSize(GLfloat s) {

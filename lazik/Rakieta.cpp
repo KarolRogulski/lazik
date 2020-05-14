@@ -11,6 +11,7 @@ Rakieta::Rakieta() {
 
 void Rakieta::setPos(Vector3 pos) {
 	position = pos;
+	changePositions();
 }
 
 void Rakieta::setColor(Vector3 col1, Vector3 col2, Vector3 col3) {
@@ -28,7 +29,7 @@ void Rakieta::setSize(GLfloat s) {
 }
 
 void Rakieta::changePositions() {
-	core.setPos({ position.x, position.y, position.z + size * 0.3f }); //z jest wysokoscia cora, bo pionowy walec ma zamienione y i z
+	core.setPos({ position.x, position.z, position.y + size * 0.3f }); //z jest wysokoscia cora, bo pionowy walec ma zamienione y i z
 	tip.setPos({ position.x, position.y + size * 2.3f, position.z });
 	engine.setPos({ position.x, position.y, position.z });
 	stabilizer1.setPos({ position.x - size * 0.025f, position.y - size * 0.1f, position.z + size * 0.2f });

@@ -235,6 +235,20 @@ void RenderScene(void)
 	// MIEJSCE NA KOD OPENGL DO TWORZENIA WLASNYCH SCEN:		   //
 	/////////////////////////////////////////////////////////////////
 	
+	Teren teren;
+	Spodek spodek;
+	Rakieta rakieta;
+	Lazik lazik;
+
+	spodek.setColor({0.0, 0.1, 0.1}, {0.5, 0.4, 0.6}, {1.0, 0.2, 0.1});
+	rakieta.setColor({0.0, 0.1, 0.1}, {0.3, 0.7, 0.6}, {1.0, 0.4, 0.4});
+	spodek.setPos({ 130.0, 0.0, 130.0 });
+	rakieta.setPos({ -100.0, 0.0, -100.0 });
+
+	teren.Render();
+	spodek.Render();
+	rakieta.Render();
+	lazik.Render();
 
 	/////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////
