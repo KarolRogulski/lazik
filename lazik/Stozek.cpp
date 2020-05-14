@@ -25,7 +25,7 @@ void Stozek::Render()
 	glEnd();
 
 	glBegin(GL_TRIANGLE_FAN);
-	glColor3d(color.x, color.y, 0.0);
+	//glColor3d(color.x, color.y, 0.0);
 	glVertex3d(position.x, position.y, position.z);
 	for (alpha = 0; alpha <= 2 * PI; alpha += PI / 20.0)
 	{

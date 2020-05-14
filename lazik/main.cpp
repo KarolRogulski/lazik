@@ -39,6 +39,9 @@
 #include "Stozek.h"
 #include "Teren.h"
 #include "Lazik.h"
+#include "Rakieta.h"
+#include "WalecPion.h"
+#include "Spodek.h"
 
 #define glRGB(x, y, z)	glColor3ub((GLubyte)x, (GLubyte)y, (GLubyte)z)
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
@@ -231,13 +234,7 @@ void RenderScene(void)
 	/////////////////////////////////////////////////////////////////
 	// MIEJSCE NA KOD OPENGL DO TWORZENIA WLASNYCH SCEN:		   //
 	/////////////////////////////////////////////////////////////////
-	/*
-	Walec walec;
-	walec.setColor({ 0.0, 0.4, 0.5 });
-	walec.setSize(30.0, 60.0);
-	walec.Render();*/
-	Lazik lazik;
-	lazik.Render();
+	
 
 	/////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////

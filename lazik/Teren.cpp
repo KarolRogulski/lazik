@@ -7,8 +7,8 @@ Teren::Teren() {
 	}
 	for (int i = 0; i < 100; i++) {
 		for (int j = 0; j < 100; j++) {
-			points[i][j].x = i * 10 - 500;
-			points[i][j].z = j * 10 - 500;
+			points[i][j].x = i * 20 - 1000;
+			points[i][j].z = j * 20 - 1000;
 			points[i][j].y = Ft(i, j);
 		}
 	}
@@ -38,7 +38,7 @@ void Teren::Render() {
 }
 
 GLfloat Teren::Ft(GLfloat x, GLfloat y) {
-	if (pow(x * 10 - 500, 2) + pow(y * 10 - 500, 2) < 2500)
-		return 0;
-	return 10 * sin(x/1.5) + 10 * cos(y/2.0);
+	if (x < 60 && x > 40 && y < 60 && y > 40)
+		return -10.0;
+	return 10 * sin(x/4.0) + 14 * cos(y/5.0);
 }

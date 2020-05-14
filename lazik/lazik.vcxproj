@@ -141,21 +141,26 @@
   <ItemGroup>
     <ClCompile Include="Cuboid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rakieta.cpp" />
+    <ClCompile Include="Spodek.cpp" />
     <ClCompile Include="Stozek.cpp" />
     <ClCompile Include="Teren.cpp" />
     <ClCompile Include="Lazik.cpp" />
-
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="Walec.cpp" />
+    <ClCompile Include="WalecPion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\RESOURCE1.H" />
     <ClInclude Include="Cuboid.h" />
+    <ClInclude Include="Rakieta.h" />
+    <ClInclude Include="Spodek.h" />
     <ClInclude Include="Stozek.h" />
     <ClInclude Include="Teren.h" />
     <ClInclude Include="Lazik.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Walec.h" />
+    <ClInclude Include="WalecPion.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\RESOURCE1.APS" />

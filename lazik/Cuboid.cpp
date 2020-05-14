@@ -34,7 +34,7 @@ void Cuboid::Render()
 	glVertex3fv(s4);
 	glEnd();
 	//sciana tylna 5678
-	glColor3f(0.8, 0.2, 0.0);
+	//glColor3f(0.8, 0.2, 0.0);
 	glBegin(GL_TRIANGLE_STRIP);
 	glVertex3fv(s5);
 	glVertex3fv(s6);
@@ -42,7 +42,7 @@ void Cuboid::Render()
 	glVertex3fv(s8);
 	glEnd();
 	//sciana dolna 1256
-	glColor3f(0.1, 0.5, 0.7);
+	//glColor3f(0.1, 0.5, 0.7);
 	glBegin(GL_TRIANGLE_STRIP);
 	glVertex3fv(s1);
 	glVertex3fv(s2);
@@ -50,7 +50,7 @@ void Cuboid::Render()
 	glVertex3fv(s6);
 	glEnd();
 	//sciana gorna 3478
-	glColor3f(0.3, 0.3, 0.3);
+	//glColor3f(0.3, 0.3, 0.3);
 	glBegin(GL_TRIANGLE_STRIP);
 	glVertex3fv(s3);
 	glVertex3fv(s4);
@@ -58,7 +58,7 @@ void Cuboid::Render()
 	glVertex3fv(s8);
 	glEnd();
 	//sciana prawa 2468
-	glColor3f(0.9, 0.1, 0.9);
+	//glColor3f(0.9, 0.1, 0.9);
 	glBegin(GL_TRIANGLE_STRIP);
 	glVertex3fv(s2);
 	glVertex3fv(s4);
@@ -66,7 +66,7 @@ void Cuboid::Render()
 	glVertex3fv(s8);
 	glEnd();
 	//sciana lewa 1357
-	glColor3f(color.x, color.y, 1.0);
+	//glColor3f(color.x, color.y, 1.0);
 	glBegin(GL_TRIANGLE_STRIP);
 	glVertex3fv(s1);
 	glVertex3fv(s3);

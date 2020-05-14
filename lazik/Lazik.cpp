@@ -1,7 +1,7 @@
 #include "Lazik.h"
 
 Lazik::Lazik() {
-	battery = Cuboid();
+	/*battery = Cuboid();
 	suspension = Cuboid();
 	frontAxis = Walec();
 	backAxis = Walec();
@@ -10,7 +10,7 @@ Lazik::Lazik() {
 	backRightWheel = Walec(); 
 	backLeftWheel = Walec();
 	antennaBasis = Cuboid();
-	antenna = Stozek();
+	antenna = Stozek();*/
 	size = 50;
 	color = { 1.0, 0.0, 0.0 };
 	position = { 0.0, 0.0, 0.0 };
