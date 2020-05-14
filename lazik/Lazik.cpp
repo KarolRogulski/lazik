@@ -19,7 +19,7 @@ Lazik::Lazik() {
 }
 
 void Lazik::changePositions() {
-	Vector3 p = frontAxis.getPos();
+	Vector3 p = position;
 	antennaBasis.setPos({ p.x, p.y + size * 0.5f, p.z + size * 0.2f });
 	antenna.setPos({p.x + size * 0.1f, p.y + size * 0.6f, p.z + size * 0.3f });
 	suspension.setPos({p.x - size * 0.1f, p.y, p.z + size * 0.15f});
