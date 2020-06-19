@@ -42,7 +42,7 @@
 #include "Rakieta.h"
 #include "WalecPion.h"
 #include "Spodek.h"
-
+using namespace std;
 #define glRGB(x, y, z)	glColor3ub((GLubyte)x, (GLubyte)y, (GLubyte)z)
 #define BITMAP_ID 0x4D42		// identyfikator formatu BMP
 #define GL_PI 3.14
@@ -58,6 +58,12 @@ static HINSTANCE hInstance;
 static GLfloat xRot = 0.0f;
 static GLfloat yRot = 0.0f;
 static GLfloat scale = 1.0f;
+static GLfloat VL = 0.0f;
+static GLfloat VR = 0.0f;
+static GLfloat turn = 0.0f;
+float angle;
+Vector3 postion = { 0.0, 0.0, 0.0 };
+Vector3 speed = { 0.0, 0.0, 0.0 };
 
 static GLsizei lastHeight;
 static GLsizei lastWidth;
@@ -234,22 +240,41 @@ void RenderScene(void)
 	/////////////////////////////////////////////////////////////////
 	// MIEJSCE NA KOD OPENGL DO TWORZENIA WLASNYCH SCEN:		   //
 	/////////////////////////////////////////////////////////////////
-	
 	Teren teren;
 	Spodek spodek;
 	Rakieta rakieta;
-	Lazik lazik;
 
 	spodek.setColor({0.0, 0.1, 0.1}, {0.5, 0.4, 0.6}, {1.0, 0.2, 0.1});
 	rakieta.setColor({0.0, 0.1, 0.1}, {0.3, 0.7, 0.6}, {1.0, 0.4, 0.4});
 	spodek.setPos({ 130.0, 0.0, 130.0 });
 	rakieta.setPos({ -100.0, 0.0, -100.0 });
 
+	glPushMatrix();
+	Lazik lazik;
+	
+	 angle += turn * 0.5f;
+
+	speed.x = cos((angle * GL_PI) / 180.0) * (VL + VR);
+	speed.z = sin((angle * GL_PI) / 180.0) * (VL + VR);
+
+	VL *= (1.0 - 0.01) / 1.0;
+	VR *= (1.0 - 0.01) / 1.0;
+
+	postion.x = postion.x + speed.x;
+	postion.z = postion.z + speed.z;
+	//turn = turn + 1.0f// +(const int)(skret) % 360;
+	glTranslatef(postion.x, postion.y, postion.z);
+
+	glRotatef(-angle, 0.0f, 1.0f, 0.0f);
+
+	//glTranslatef(postion.x, postion.y, postion.z);
+	
+	lazik.Render();
+	glPopMatrix();
+
 	teren.Render();
 	spodek.Render();
 	rakieta.Render();
-	lazik.Render();
-
 	/////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////
 	/////////////////////////////////////////////////////////////////
@@ -425,6 +450,8 @@ int APIENTRY WinMain(HINSTANCE       hInst,
 	ShowWindow(hWnd, SW_SHOW);
 	UpdateWindow(hWnd);
 
+	const WORD ID_TIMER = 1;
+	SetTimer(hWnd, ID_TIMER, 1000/60, NULL);
 	// Process application messages until the application closes
 	while (GetMessage(&msg, NULL, 0, 0))
 	{
@@ -668,18 +695,44 @@ LRESULT CALLBACK WndProc(HWND    hWnd,
 		
 		//Camera zoom
 		if (wParam == 'P')
-			scale += 0.2f;
+			scale += 0.15f;
 
 		if (wParam == 'O')
-			scale -= 0.2f;
+			scale -= 0.15f;
 
+		//Steering
+		if (wParam == 'W' && VL < 5) {
+			VL += 0.25f;
+			VR += 0.25f;
+		}
+
+		if (wParam == 'S' && VL > -5) {
+			VL -= 0.25f; 
+			VR -= 0.25f;
+		}
+
+		if (wParam == 'A' && turn > -7) {
+			turn -= 1.0f;
+		}
+
+		if (wParam == 'D' && turn < 7) {
+			turn += 1.0f;
+		}
+
+		turn = (const int)turn % 360;
 		xRot = (const int)xRot % 360;
 		yRot = (const int)yRot % 360;
 
 		InvalidateRect(hWnd, NULL, FALSE);
 	}
 	break;
-
+	case WM_TIMER:
+	{
+		RenderScene();
+		SwapBuffers(hDC);
+		ValidateRect(hWnd, NULL);
+		break;
+	}
 	// A menu command
 	case WM_COMMAND:
 	{

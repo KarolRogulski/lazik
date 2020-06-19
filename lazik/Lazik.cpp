@@ -13,7 +13,7 @@ Lazik::Lazik() {
 	antenna = Stozek();*/
 	size = 50;
 	color = { 1.0, 0.0, 0.0 };
-	position = { 0.0, 0.0, 0.0 };
+	position = { -size/ 2.0f , 0.0, -size/2.0f };
 	changeSizes();
 	changePositions();
 }
@@ -25,6 +25,7 @@ void Lazik::changePositions() {
 	suspension.setPos({p.x - size * 0.1f, p.y, p.z + size * 0.15f});
 	battery.setPos({ p.x, p.y + size * 0.5f, p.z + size * 0.7f});
 
+	frontAxis.setPos({ p.x, p.y, p.z });
 	frontRightWheel.setPos({ p.x, p.y, p.z });
 	frontLeftWheel.setPos({ p.x, p.y, p.z + size});
 	p.x += size;
